@@ -71,6 +71,7 @@ player.on("timeupdate", function () {
 player.src(
   "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
 );
+player.hlsQualitySelector({displayCurrentQuality: true})
 // player.skipTime(player);
 
 const play = () => player.play();
