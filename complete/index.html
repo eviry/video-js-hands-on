@@ -20,7 +20,6 @@
     <div class="my-3">
       <h1>Video Player</h1>
       <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9">
-        <source src="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" type="application/x-mpegURL" />
         <!-- <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" /> -->
       </video>
     </div>
@@ -42,6 +41,8 @@
   </footer>
 
   <script src="https://vjs.zencdn.net/7.20.1/video.min.js"></script>
+  <script src="modules/videojs-contrib-quality-levels/videojs-contrib-quality-levels.js"></script>
+  <script src="modules/videojs-hls-quality-selector/videojs-hls-quality-selector.js"></script>
   <script src="./index.js"></script>
   <script src="./plagin/skipTime.js"></script>
 </body>
