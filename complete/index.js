@@ -22,13 +22,10 @@ const player = videojs("my-video", {
       srclang: "en",
       label: "English",
     },
-    // {
-    //   src: "./thumbnails/thumbnail.vtt",
-    //   kind: "metadata",
-    //   label: "thumbnails",
-    //   mode: "hidden",
-    // },
   ],
+  plugins: {
+    vttThumbnails: { src: "./thumbnails/big_buck_bunny_thumbnails.vtt" },
+  },
 
   // playlist: [
   //   {
@@ -61,18 +58,18 @@ const player = videojs("my-video", {
   },
 });
 
+player.src("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
+player.hlsQualitySelector({ displayCurrentQuality: true });
+// player.vttThumbnails({
+//   src: "./thumbnails/big_buck_bunny_thumbnails.vtt",
+// });
+
 // player.playlist.autoadvance(0);
 
 player.on("timeupdate", function () {
   const span = document.getElementById("currentTime");
   span.innerText = player.currentTime();
 });
-
-player.src(
-  "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
-);
-player.hlsQualitySelector({displayCurrentQuality: true})
-// player.skipTime(player);
 
 const play = () => player.play();
 
