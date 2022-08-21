@@ -11,14 +11,14 @@ const skipTime = () => {
   const backSeekButton = createButton("&#8635;");
   const seekButton = createButton("&#8634;");
 
-  // seekButtonがクリックされたらseek10s関数を実行
+  // seekButtonがクリックされたら10s進める
   seekButton.onclick = () => {
-    seek10s();
+    seekXs(10);
   };
 
-  // backSeekButtonがクリックされたらbackSeek10s関数を実行
+  // backSeekButtonがクリックされたら-10s進める
   backSeekButton.onclick = () => {
-    backSeek10s();
+    seekXs(-10);
   };
 
   // コントロールバーの要素を取得
@@ -34,16 +34,10 @@ const skipTime = () => {
   controlBar.insertBefore(seekButton, volumePanel);
 };
 
-// プレイヤーの再生時間を10秒進める関数
-const seek10s = () => {
+// プレイヤーの再生時間をx秒進める関数
+const seekXs = (x) => {
   let sec = player.currentTime();
-  player.currentTime(sec + 10);
-};
-
-// プレイヤーの再生時間を10秒戻す
-const backSeek10s = () => {
-  let sec = player.currentTime();
-  player.currentTime(sec - 10);
+  player.currentTime(sec + x);
 };
 
 // videojsのイベントを追加する
