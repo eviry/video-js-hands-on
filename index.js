@@ -1,48 +1,21 @@
-const videojs = window.videojs;
-
 const player = videojs("my-video", {
   controls: true,
   autoplay: false,
   loop: false,
   preload: "auto",
   responsive: false,
-  poster: "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg",
-  skipTime: 10,
-  // textTrackSettings: false,
-  tracks: [
-    {
-      src: "./captions/jp.vtt",
-      kind: "captions",
-      srclang: "jp",
-      label: "Japanese",
-    },
-    {
-      src: "./captions/en.vtt",
-      kind: "captions",
-      srclang: "en",
-      label: "English",
-    },
-  ],
-  plugins: {
-    vttThumbnails: { src: "./thumbnails/big_buck_bunny_thumbnails.vtt" },
-  },
-
-  // playlist: [
+  // tracks: [
   //   {
-  //     sources: [
-  //       {
-  //         src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
-  //         type: "application/x-mpegURL",
-  //       },
-  //     ],
+  //     src: "./captions/jp.vtt",
+  //     kind: "captions",
+  //     srclang: "jp",
+  //     label: "Japanese",
   //   },
   //   {
-  //     sources: [
-  //       {
-  //         src: "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-  //         type: "video/mp4",
-  //       },
-  //     ],
+  //     src: "./captions/en.vtt",
+  //     kind: "captions",
+  //     srclang: "en",
+  //     label: "English",
   //   },
   // ],
 
@@ -58,13 +31,15 @@ const player = videojs("my-video", {
   },
 });
 
-player.src("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
 player.hlsQualitySelector({ displayCurrentQuality: true });
-// player.vttThumbnails({
-//   src: "./thumbnails/big_buck_bunny_thumbnails.vtt",
-// });
+player.vttThumbnails({ src: videoMetaData[0].thumbnails, showTimestamp: true });
 
-// player.playlist.autoadvance(0);
+videoMetaData[0].metaData.tracks.forEach((track) => {
+  player.addRemoteTextTrack(track);
+});
+
+const videolist = videoMetaData.map((video) => video.metaData);
+player.playlist(videolist);
 
 player.on("timeupdate", function () {
   const span = document.getElementById("currentTime");
@@ -79,10 +54,40 @@ const mute = () => player.muted(true);
 
 const unMute = () => player.muted(false);
 
-const playback10x = () => {
-  player.playbackRate(10);
+const playback = (x) => player.playbackRate(x);
+
+// const updateCaptions = (index) => {
+//   // if (index !== undefined) {
+//   const oldTracks = player.remoteTextTracks();
+//   for (let i = 0; i < oldTracks.length; i++) {
+//     player.removeRemoteTextTrack(oldTracks[i]);
+//   }
+//   // }
+//   videoMetaData[index].metaData.tracks.forEach((track) => {
+//     player.addRemoteTextTrack(track);
+//   });
+// };
+
+const previousVideo = () => {
+  const currentNumber = player.playlist.currentItem();
+  const previousNumber = currentNumber - 1;
+  // 前の動画が存在する場合
+  if (currentNumber !== 0) {
+    player.vttThumbnails.src(videoMetaData[previousNumber].thumbnails);
+    // updateCaptions(previousNumber);
+  }
+
+  player.playlist.previous();
 };
 
-const playback = () => {
-  player.playbackRate(1);
+const nextVideo = () => {
+  const currentNumber = player.playlist.currentItem();
+  const nextNumber = currentNumber + 1;
+  // 次の動画が存在する場合
+  if (nextNumber !== player.playlist().length) {
+    player.vttThumbnails.src(videoMetaData[nextNumber].thumbnails);
+    // updateCaptions(nextNumber);
+  }
+
+  player.playlist.next();
 };
