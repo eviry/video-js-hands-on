@@ -31,6 +31,7 @@ const player = videojs("my-video", {
   },
 });
 
+player.src("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
 player.hlsQualitySelector({ displayCurrentQuality: true });
 player.vttThumbnails({ src: videoMetaData[0].thumbnails, showTimestamp: true });
 
