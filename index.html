@@ -20,24 +20,22 @@
   <main class="container-sm my-3">
     <div class="my-3">
       <h1>Video Player</h1>
-      <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered vjs-16-9">
-        <!-- <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" /> -->
+      <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered">
+        <!-- <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" /> -->
       </video>
-    </div>
+      <div>
+        <p>Playback time: <span id="currentTime">0</span> sec</p>
 
-    <div>
-      <p>Playback time: <span id="currentTime">0</span> sec</p>
-
-      <button class="previous btn btn-secondary" onclick="previousVideo()">Previous</button>
-      <button class="next btn btn-primary" onclick="nextVideo()">Next</button>
-      <!-- <button class="btn btn-primary" onclick="play()">play</button>
+        <button class="previous btn btn-secondary" onclick="previousVideo()">Previous</button>
+        <button class="next btn btn-primary" onclick="nextVideo()">Next</button>
+        <!-- <button class="btn btn-primary" onclick="play()">play</button>
       <button class="btn btn-secondary" onclick="pause()">pause</button> -->
-      <!-- <button class="btn btn-dark" onclick="mute()">mute</button> -->
-      <!-- <button class="btn btn-light border-dark" onclick="unMute()">unmute</button> -->
-      <!-- <button class="btn btn-light border-dark" onclick="seek10s()">seek 10s</button> -->
-      <!-- <button class="btn btn-light border-dark" onclick="playback(10)">x10</button>
+        <!-- <button class="btn btn-dark" onclick="mute()">mute</button> -->
+        <!-- <button class="btn btn-light border-dark" onclick="unMute()">unmute</button> -->
+        <!-- <button class="btn btn-light border-dark" onclick="seek10s()">seek 10s</button> -->
+        <!-- <button class="btn btn-light border-dark" onclick="playback(10)">x10</button>
       <button class="btn btn-light border-dark" onclick="playback(1)">x1</button> -->
-    </div>
+      </div>
   </main>
 
   <footer class="text-center bg-dark text-light mt-auto">
