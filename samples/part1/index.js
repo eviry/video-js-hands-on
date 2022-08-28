@@ -23,13 +23,13 @@ const player = videojs("my-video", {
   },
   tracks: [
     {
-      src: "./captions/jp.vtt",
+      src: "captions/jp.vtt",
       kind: "captions",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "./captions/en.vtt",
+      src: "captions/en.vtt",
       kind: "captions",
       srclang: "en",
       label: "English",

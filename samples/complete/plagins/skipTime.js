@@ -28,6 +28,12 @@ const skipTime = (bool) => {
     return button;
   };
 
+  // プレイヤーの再生時間をx秒進める関数
+  const seekXs = (x) => {
+    const sec = player.currentTime();
+    player.currentTime(sec + x);
+  };
+
   const backSeekButton = createButton("&#8635;");
   const seekButton = createButton("&#8634;");
 
@@ -54,13 +60,5 @@ const skipTime = (bool) => {
   controlBar.insertBefore(seekButton, volumePanel);
 };
 
-// プレイヤーの再生時間をx秒進める関数
-const seekXs = (x) => {
-  let sec = player.currentTime();
-  player.currentTime(sec + x);
-};
-
 // videojsのイベントを追加する
 videojs.registerPlugin("skipTime", skipTime);
-
-player.skipTime(true);

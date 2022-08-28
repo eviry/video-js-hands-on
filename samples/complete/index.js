@@ -24,13 +24,13 @@ const player = videojs("my-video", {
   // 字幕の設定
   tracks: [
     {
-      src: "./captions/jp.vtt",
+      src: "captions/jp.vtt",
       kind: "captions",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "./captions/en.vtt",
+      src: "captions/en.vtt",
       kind: "captions",
       srclang: "en",
       label: "English",
@@ -43,9 +43,12 @@ player.src("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
 // 画質選択の設定を有効にする
 player.hlsQualitySelector();
 
+// skipボタンを有効にする
+player.skipTime(true);
+
 // シークバーにマウスを乗せたときにサムネイルを表示する
 player.vttThumbnails({
-  src: "./thumbnails/big_buck_bunny_thumbnails.vtt",
+  src: "thumbnails/big_buck_bunny_thumbnails.vtt",
 });
 
 // 再生時間が更新されるたびに実行される関数を設定する

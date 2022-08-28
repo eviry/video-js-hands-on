@@ -23,13 +23,13 @@ const player = videojs("my-video", {
   },
   tracks: [
     {
-      src: "./captions/jp.vtt",
+      src: "captions/jp.vtt",
       kind: "captions",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "./captions/en.vtt",
+      src: "captions/en.vtt",
       kind: "captions",
       srclang: "en",
       label: "English",
@@ -41,6 +41,6 @@ player.src("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
 
 // プレイヤーの再生時間をx秒進める関数
 const seekXs = (x) => {
-  let sec = player.currentTime();
+  const sec = player.currentTime();
   player.currentTime(sec + x);
 };

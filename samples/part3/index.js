@@ -24,13 +24,13 @@ const player = videojs("my-video", {
   // 字幕の設定
   tracks: [
     {
-      src: "./captions/jp.vtt",
+      src: "captions/jp.vtt",
       kind: "captions",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "./captions/en.vtt",
+      src: "captions/en.vtt",
       kind: "captions",
       srclang: "en",
       label: "English",
@@ -45,7 +45,6 @@ player.hlsQualitySelector({
 
 // プレイヤーの再生時間をx秒進める関数
 const seekXs = (x) => {
-  let sec = player.currentTime();
+  const sec = player.currentTime();
   player.currentTime(sec + x);
-  console.log("test");
 };
