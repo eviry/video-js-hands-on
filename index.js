@@ -23,13 +23,13 @@ const player = videojs("my-video", {
 
   // tracks: [
   //   {
-  //     src: "./captions/jp.vtt",
+  //     src: "./captions/jp1.vtt",
   //     kind: "captions",
   //     srclang: "jp",
   //     label: "Japanese",
   //   },
   //   {
-  //     src: "./captions/en.vtt",
+  //     src: "./captions/en1.vtt",
   //     kind: "captions",
   //     srclang: "en",
   //     label: "English",
@@ -37,20 +37,41 @@ const player = videojs("my-video", {
   // ],
 });
 
-player.src("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
 player.hlsQualitySelector({ displayCurrentQuality: true });
-player.vttThumbnails({ src: videoMetaData[0].thumbnails, showTimestamp: true });
 
-videoMetaData[0].metaData.tracks.forEach((track) => {
-  player.addRemoteTextTrack(track);
-});
+initVideo = () => {
+  number = 0;
+  player.src(videoMetaData[number].metaData.sources);
+  player.vttThumbnails({ src: videoMetaData[number].thumbnails, showTimestamp: true });
+  videoMetaData[number].metaData.tracks.forEach((track) => {
+    player.addRemoteTextTrack(track, false);
+  });
+  player.poster(videoMetaData[number].metaData.poster);
+}
 
-const videolist = videoMetaData.map((video) => video.metaData);
-player.playlist(videolist);
+changeVideo = (number) => {
+  player.src(videoMetaData[number].metaData.sources);
+  player.vttThumbnails.src(videoMetaData[number].thumbnails);
+  
+  // 字幕
+  track_num = Number(String(player.remoteTextTracks().length))
+  console.log(track_num)
+  for (var i=0;i<track_num;i++){
+    if (typeof player.remoteTextTracks()[i] !== "undefined" && typeof player.remoteTextTracks()[i].src !== "undefined"){
+      player.removeRemoteTextTrack(player.remoteTextTracks()[i]);
+    }
+  }
+  videoMetaData[number].metaData.tracks.forEach((track) => {
+    player.addRemoteTextTrack(track, false);
+  });
+
+  player.poster(videoMetaData[number].metaData.poster);
+}
+
+initVideo();
 
 player.on("timeupdate", function () {
-  const span = document.getElementById("currentTime");
-  span.innerText = player.currentTime();
+  $("span#currentTime").text(player.currentTime())
 });
 
 const play = () => player.play();
@@ -62,18 +83,6 @@ const mute = () => player.muted(true);
 const unMute = () => player.muted(false);
 
 const playback = (x) => player.playbackRate(x);
-
-// const updateCaptions = (index) => {
-//   // if (index !== undefined) {
-//   const oldTracks = player.remoteTextTracks();
-//   for (let i = 0; i < oldTracks.length; i++) {
-//     player.removeRemoteTextTrack(oldTracks[i]);
-//   }
-//   // }
-//   videoMetaData[index].metaData.tracks.forEach((track) => {
-//     player.addRemoteTextTrack(track);
-//   });
-// };
 
 const previousVideo = () => {
   const currentNumber = player.playlist.currentItem();
@@ -98,3 +107,25 @@ const nextVideo = () => {
 
   player.playlist.next();
 };
+
+const swipeCarousel = (e) => {
+  var num_to = e.to;
+  changeVideo(num_to);
+}
+
+$(function(){
+  //Carousel
+  carousel = $("#carouselToggleVideo");
+  carousel.bind("slid.bs.carousel", swipeCarousel);
+  // switch_seekable
+  $('#toggleSeekable').change(
+    function(){
+      var progress_control = player.controlBar.progressControl;
+      if($(this).prop('checked')){
+        progress_control.enable();
+      }else{
+        progress_control.disable();
+      }
+    }
+  )
+})

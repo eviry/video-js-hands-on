@@ -9,16 +9,16 @@ const videoMetaData = [
         },
       ],
       poster:
-        "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg",
+        "posters/poster1.jpg",
       tracks: [
         {
-          src: "./captions/jp.vtt",
+          src: "./captions/jp1.vtt",
           kind: "captions",
           srclang: "jp",
           label: "Japanese",
         },
         {
-          src: "./captions/en.vtt",
+          src: "./captions/en1.vtt",
           kind: "captions",
           srclang: "en",
           label: "English",
@@ -37,22 +37,22 @@ const videoMetaData = [
         },
       ],
       poster:
-        "https://storage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
+      "posters/poster2.png",
       tracks: [
         {
-          src: "",
+          src: "./captions/jp2.vtt",
           kind: "captions",
           srclang: "jp",
           label: "Japanese",
         },
         {
-          src: "",
+          src: "./captions/en2.vtt",
           kind: "captions",
           srclang: "en",
           label: "English",
         },
       ],
     },
-    thumbnails: "./thumbnails/test.vtt",
+    thumbnails: "./thumbnails/elephant.vtt",
   },
 ];

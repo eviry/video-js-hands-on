@@ -1,0 +1,35 @@
+/* .carousel-item{
+    height: 200px;
+} */
+/*プレイヤー時間表示関係
+ソース http://blog.livedoor.jp/jigokuhen/archives/52352172.html*/
+/*残り時間表示を消す*/
+.vjs-remaining-time{
+    display: none;
+    }
+    /*現在時間表示*/
+    .video-js .vjs-current-time,.vjs-no-flex .vjs-current-time{
+    display: block;
+    }
+    /*総再生時間表示*/
+    .video-js .vjs-duration,.vjs-no-flex .vjs-duration{
+    display: block;
+    }
+    /*現在時間と総再生時間の間の"/"を表示*/
+    .vjs-time-divider {
+    display: block;
+    }
+    
+    /*再生時間*/
+    .video-js div.vjs-time-control{
+      padding-left: 0.2em;
+      padding-right: 0.2em;
+      font-size: 14pt;
+      line-height: 24pt;
+    }
+    
+    /*再生時間の仕切り*/
+    .video-js div.vjs-time-divider{
+      min-width: 1em;
+    }
+    
