@@ -33,6 +33,9 @@
     └── thumbnails     # サムネイル関連のファイルを格納するディレクトリ（ハンズオンでは扱わない）
 ```
 
+### Introduction
+- Visual Studio Codeに以下のプラグインをインストール(任意)
+    - [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 ### Part1
 
@@ -51,7 +54,7 @@
 
 ### Part4
 #### この章で話すこと
-- Video.jsで自作のプラグインを作成する
+- Video.jsで自作のプラグインを作成してみる
 
 ## 参照・資材
 
