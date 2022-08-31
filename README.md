@@ -35,6 +35,7 @@
 
 ### Introduction
 - Visual Studio Codeに以下のプラグインをインストール(任意)
+    - [Japanese Language Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja)
     - [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 ### Part1
