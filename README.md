@@ -1,38 +1,32 @@
-# Video.js ハンズオン
-
-## やること
-
-- videojs の基本的な使い方
-
-## やらないこと
-
-- HTML の基本
-- CSS の基本
-- JaveScript の基本
-
+# Video.js ハンズオン 社員例
 ## 内容
-
-### Part1
-
-#### この章で話すこと
-
-- video タグで動画を再生してみる
-- `controls`、`muted`、`autoplay`といった属性を指定することである程度制御できる
-- ブラウザ毎で再生できる動画形式が異なる
-
-#### Part2
-
-## 参照・資材
-
-- [公式 Document](https://docs.videojs.com/)
-- [BigBuckBunny mp4](http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4)
-- [BigBuckBunny m3u8](https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8)
-- [BigBuckBunny thumbnail](https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg)
-
+ハンズオンのコードを参考にして社員が制作した例です。
+動画切り替え機能を追加しています。
+## ディレクトリ構成
 ```
-curl -O http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+.
+├── README.md # このreadme
+├── favicon.ico
+├── index.html
+├── index.js
+├── style.css
+├── captions        # 字幕関連
+│   ├── ...
+│   └── ...
+├── const        # ファイル名などのデータ
+│   └── videoMetaData.js
+├── forthumbnail        # 動画サムネイルを作成するための資材格納ディレクトリ
+│   ├── ...
+│   └── ...
+├── modules        # video.js の外部ライブラリ
+│   ├── ...
+│   └── ...
+├── plugin        # 作成したプラグイン
+│   └── skipTime.js
+├── posters        # 再生前に表示される画像
+│   ├── poster1.jpg
+│   └── poster2.jpg
+└── thumbnails        # 動画サムネイル
+    ├── ...
+    └── ...
 ```
-
-- https://gist.github.com/jsturgis/3b19447b304616f18657
-- https://www.youtube.com/playlist?list=PLSkTiyK6-uFd85cPVw6RcXn9MFNwms6L3
-- https://webtan.impress.co.jp/e/2016/06/07/23018#unicode_icon_arrow
