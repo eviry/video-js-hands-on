@@ -37,6 +37,9 @@
 - Visual Studio Codeに以下のプラグインをインストール(任意)
     - [Japanese Language Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja)
     - [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- Google Chromeを新ストール(任意)
+    - 一部、他のブラウザ（Safari, Edge, etc）では利用できない場合があります。
+    - [Google chrome](https://www.google.com/intl/ja_jp/chrome/)
 
 ### Part1
 
