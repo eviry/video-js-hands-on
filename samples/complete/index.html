@@ -2,8 +2,8 @@
 <html lang="jp">
 
 <head>
-  <link href="https://vjs.zencdn.net/7.20.1/video-js.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://vjs.zencdn.net/7.20.1/video-js.css" rel="stylesheet" />
   <link href="modules/videojs-vtt-thumbnails/videojs-vtt-thumbnails.css" rel="stylesheet" />
   <meta charset="UTF-8">
 </head>
@@ -18,17 +18,16 @@
     </nav>
   </header>
   <main class="container-sm my-3">
-    <div class="my-3">
+    <div>
       <h1>Video Player</h1>
       <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered">
-        <!-- <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" /> -->
+        <p>動画を再生するにはvideoタグをサポートしたブラウザが必要です。</p>
       </video>
       <div>
         <p>Playback time: <span id="currentTime">0</span> sec</p>
       </div>
     </div>
   </main>
-
   <footer class="text-center bg-dark text-light mt-auto">
     ©2022 <a class="text-reset" target="_blank" href="https://eviry.com">COPYRIGHT © EVIRY INC. ALL RIGHT RESERVED.</a>
   </footer>

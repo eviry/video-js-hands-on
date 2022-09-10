@@ -1,4 +1,9 @@
 const player = videojs("my-video", {
+  sources: [
+    {
+      src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+    },
+  ],
   poster: "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg",
   // 動画のアスペクト比を自動で調整する
   fluid: true,
@@ -38,10 +43,10 @@ const player = videojs("my-video", {
   ],
 });
 
-player.src("https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8");
-
 // 画質選択の設定を有効にする
-player.hlsQualitySelector();
+player.hlsQualitySelector({
+  displayCurrentQuality: true,
+});
 
 // skipボタンを有効にする
 player.skipTime(true);
