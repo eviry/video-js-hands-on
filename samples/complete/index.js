@@ -26,19 +26,25 @@ const player = videojs("my-video", {
   controlBar: {
     volumePanel: { inline: false },
   },
-  // 字幕の設定
   tracks: [
+    // 字幕の設定
     {
-      src: "captions/jp.vtt",
-      kind: "captions",
+      src: "subtitle/jp.vtt",
+      kind: "subtitle",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "captions/en.vtt",
-      kind: "captions",
+      src: "subtitle/en.vtt",
+      kind: "subtitle",
       srclang: "en",
       label: "English",
+    },
+    // チャプターの設定
+    {
+      src: "chapter/chapter.vtt",
+      kind: "chapters",
+      label: "Chapter",
     },
   ],
 });
@@ -61,13 +67,3 @@ player.on("timeupdate", function () {
   const span = document.getElementById("currentTime");
   span.innerText = player.currentTime();
 });
-
-const play = () => player.play();
-
-const pause = () => player.pause();
-
-const mute = () => player.muted(true);
-
-const unMute = () => player.muted(false);
-
-const playback = (x) => player.playbackRate(x);
