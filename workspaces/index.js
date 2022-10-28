@@ -1,4 +1,9 @@
 const player = videojs("my-video", {
+  sources: [
+    {
+      src: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8",
+    },
+  ],
   poster: "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg",
   // 動画のアスペクト比を自動で調整する
   fluid: true,
@@ -21,19 +26,25 @@ const player = videojs("my-video", {
   controlBar: {
     volumePanel: { inline: false },
   },
-  // 字幕の設定
   tracks: [
+    // 字幕の設定
     {
-      src: "captions/jp.vtt",
-      kind: "captions",
+      src: "subtitle/jp.vtt",
+      kind: "subtitle",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "captions/en.vtt",
-      kind: "captions",
+      src: "subtitle/en.vtt",
+      kind: "subtitle",
       srclang: "en",
       label: "English",
+    },
+    // チャプターの設定
+    {
+      src: "chapter/chapter.vtt",
+      kind: "chapters",
+      label: "Chapter",
     },
   ],
 });
