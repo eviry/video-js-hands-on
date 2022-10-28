@@ -29,20 +29,20 @@ const player = videojs("my-video", {
   tracks: [
     // 字幕の設定
     {
-      src: "subtitle/jp.vtt",
+      src: "subtitles/jp.vtt",
       kind: "subtitle",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "subtitle/en.vtt",
+      src: "subtitles/en.vtt",
       kind: "subtitle",
       srclang: "en",
       label: "English",
     },
     // チャプターの設定
     {
-      src: "chapter/chapter.vtt",
+      src: "chapters/chapter.vtt",
       kind: "chapters",
       label: "Chapter",
     },
