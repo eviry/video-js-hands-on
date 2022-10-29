@@ -26,19 +26,25 @@ const player = videojs("my-video", {
   controlBar: {
     volumePanel: { inline: false },
   },
-  // 字幕の設定
   tracks: [
+    // 字幕の設定
     {
-      src: "captions/jp.vtt",
-      kind: "captions",
+      src: "subtitles/jp.vtt",
+      kind: "subtitle",
       srclang: "jp",
       label: "Japanese",
     },
     {
-      src: "captions/en.vtt",
-      kind: "captions",
+      src: "subtitles/en.vtt",
+      kind: "subtitle",
       srclang: "en",
       label: "English",
+    },
+    // チャプターの設定
+    {
+      src: "chapters/chapter.vtt",
+      kind: "chapters",
+      label: "Chapter",
     },
   ],
 });
