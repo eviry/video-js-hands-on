@@ -48,3 +48,35 @@ const player = videojs("my-video", {
     },
   ],
 });
+
+// 画質選択の設定を有効にする
+player.hlsQualitySelector({
+  displayCurrentQuality: true,
+});
+
+// skipボタンを有効にする
+player.skipTime(true);
+
+// 自主制作機能を有効にする
+player.favoriteTime(true);
+
+// シークバーにマウスを乗せたときにサムネイルを表示する
+player.vttThumbnails({
+  src: "thumbnails/big_buck_bunny_thumbnails.vtt",
+});
+
+// 再生時間が更新されるたびに実行される関数を設定する
+player.on("timeupdate", function () {
+  const span = document.getElementById("currentTime");
+  span.innerText = player.currentTime();
+});
+
+const play = () => player.play();
+
+const pause = () => player.pause();
+
+const mute = () => player.muted(true);
+
+const unMute = () => player.muted(false);
+
+const playback = (x) => player.playbackRate(x);
