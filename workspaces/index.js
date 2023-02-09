@@ -57,6 +57,9 @@ player.hlsQualitySelector({
 // skipボタンを有効にする
 player.skipTime(true);
 
+// 自主制作機能を有効にする
+player.favoriteTime(true);
+
 // シークバーにマウスを乗せたときにサムネイルを表示する
 player.vttThumbnails({
   src: "thumbnails/big_buck_bunny_thumbnails.vtt",
